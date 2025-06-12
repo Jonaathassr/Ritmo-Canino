@@ -1,0 +1,842 @@
+/* Fonte global */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Cabeçalho */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px; /* ou o valor que desejar para o header */
+  overflow: hidden; /* impede que a logo "empurre" o header */
+  padding: 1rem 2rem;
+  background-color: #213435;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header img {
+  max-height: 400%;  /* ocupará até 100% da altura do header */
+  height: auto;      /* mantém proporção da imagem */
+  width: auto;
+  display: block;
+  margin-left: 5rem;
+  margin-top: 1rem;
+}
+
+
+header h2 {
+  font-weight: 800;
+  color: #e1e3ac;
+  margin: 0;
+  flex: 1;
+  margin-left: 3.5rem;
+}
+
+header nav {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+header nav a {
+  margin-left: 3.0rem;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+header nav a:hover {
+  color: #46685b ;
+}
+
+.social-menus {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-menus a {
+  color: #ffffff; /* ou uma cor mais contrastante como #fff */
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+.social-menus a:hover {
+  color: #46685b;
+}
+
+
+/* Seção Hero - COM ALTERAÇÕES PARA EFEITO DE ZOOM */
+.hero {
+  /* A imagem de fundo e o gradiente foram movidos para o ::before */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+  color: #fff;
+  text-align: center;
+  position: relative;     /* NECESSÁRIO para o posicionamento absoluto do ::before */
+  overflow: hidden;       /* NECESSÁRIO para conter o zoom do ::before */
+}
+
+.hero::before {
+  content: "";            /* Pseudo-elementos precisam de content */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* A imagem de fundo e o gradiente estão aqui agora */
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/dog9.webp') center center / cover no-repeat;
+  z-index: 0;             /* Coloca o ::before atrás do conteúdo do .hero */
+
+  /* Animação de zoom */
+  animation-name: heroZoomEffect;
+  animation-duration: 7s; /* Duração longa para um efeito "devagarzinho" */
+  animation-timing-function: ease-in-out; /* Suaviza o início e o fim da animação */
+  animation-iteration-count: infinite; /* Repete a animação indefinidamente */
+  animation-direction: alternate; /* Faz a animação ir e voltar (zoom in, zoom out) */
+}
+
+@media (max-width: 768px) {
+  .hero::before {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/dog9.webp') center center / cover no-repeat;
+  }
+
+  .hero {
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero a {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+
+/* Keyframes para a animação de zoom */
+@keyframes heroZoomEffect {
+  0% { /* Estado inicial */
+    transform: scale(1);
+  }
+  100% { /* Estado final */
+    transform: scale(1.05); /* Aumenta a imagem em 5%. Ajuste conforme desejado (ex: 1.1 para 10%) */
+  }
+}
+
+/* Garante que o conteúdo textual fique ACIMA do pseudo-elemento ::before */
+.hero h1,
+.hero p,
+.hero a {
+  position: relative; /* Necessário para que z-index funcione corretamente */
+  z-index: 1;         /* Coloca o texto acima do ::before (que tem z-index: 0) */
+  /* Estilos existentes mantidos */
+  /* ... (seus estilos de font-size, margin-bottom, padding, etc. para h1, p, a) ... */
+}
+
+/* Seus estilos existentes para .hero h1, .hero p, .hero a devem ser mantidos ou verificados */
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 1.25rem;
+}
+
+.hero a {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #FFAB76;
+  color: #FDFDFD;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  font-size: 1.2rem;
+}
+
+.hero a:hover {
+  background-color: #da824c;
+  color: #FDFDFD;
+}
+
+/* Como Funciona */
+#servicos {
+  padding: 4rem 2rem;
+  background-color: #648a64;
+  text-align: center;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.servicos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+}
+
+.card {
+  background-color: #213435;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 250px;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card img {
+  width: 150%;
+  height: 250px;
+  object-fit: cover;
+  margin-left: -25%;
+}
+
+.card h3 {
+  margin: 1rem 0;
+  color: #ffffff;
+}
+
+#beneficios {
+  padding: 5rem 2rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+#beneficios h2 {
+  font-size: 2rem;
+  color: #213435;
+  margin-bottom: 3rem;
+  font-weight: 800;
+}
+
+.beneficios-lista {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.beneficio-item {
+  background-color: #648a64;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 300px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+
+.beneficio-item:hover {
+  transform: translateY(-5px);
+}
+
+.beneficio-item img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+.beneficio-item h3 {
+  font-size: 1.2rem;
+  color: #FDFDFD;
+  margin-bottom: 0.5rem;
+}
+
+.beneficio-item p {
+  color: #ece6e6;
+  font-size: 1rem;
+}
+
+#precos {
+  padding: 5rem 2rem;
+  background-color: #e1e3ac;
+  text-align: center;
+}
+
+#precos h2 {
+  font-size: 2rem;
+  color: #213435;
+  margin-bottom: 3rem;
+  font-weight: 800;
+}
+
+.planos-lista {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.plano-card {
+  background-color: #fdf6e3;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 280px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.plano-card:hover {
+  transform: translateY(-5px);
+}
+
+.plano-card h3 {
+  font-size: 1.5rem;
+  color: #213435;
+  margin-bottom: 1rem;
+}
+
+.plano-card .preco {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #FFAB76;
+  margin-bottom: 1rem;
+}
+
+.plano-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 2rem;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.plano-card ul li {
+  margin-bottom: 0.5rem;
+}
+
+.plano-card.destaque {
+  background-color: #fdf6e3;
+  border: 2px solid #da824c;
+}
+
+.escolher {
+  display: inline-block;
+  margin: 1rem 0;
+  padding: 0.75rem 1.5rem;
+  background-color: #FFAB76;
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+
+/* Sobre - COM ALTERAÇÕES */
+#sobre {
+  padding: 4rem 2rem; /* Ajustei o padding vertical um pouco */
+  background-color: #a6b985;
+  color: #ffffff;
+  /* display: flex; foi removido daqui para ser ajustado abaixo */
+  text-align: center; /* Centraliza o h2 por padrão */
+}
+
+#sobre h2 {
+  font-size: 2.2rem; /* Pode ajustar o tamanho do título */
+  margin-bottom: 2.5rem; /* Espaço abaixo do título */
+  font-weight: 700;
+}
+
+.sobre-conteudo {
+  display: flex;
+  flex-direction: row; /* Padrão, mas explícito para clareza */
+  align-items: flex-start; /* Alinha itens no topo se tiverem alturas diferentes */
+  justify-content: center; /* Centraliza o conjunto texto+imagem se houver espaço extra */
+  gap: 8rem; /* Espaço entre o bloco de texto e a imagem */
+  max-width: 1000px; /* Limita a largura máxima do conteúdo lado a lado */
+  margin: 0 auto; /* Centraliza .sobre-conteudo na seção #sobre */
+  text-align: left; /* Alinha o texto dos parágrafos à esquerda */
+}
+
+.sobre-texto {
+  flex: 1; /* Permite que o texto ocupe o espaço disponível */
+  max-width: 550px; /* Limita a largura do bloco de texto */
+}
+
+.sobre-texto p {
+  font-size: 1.1rem;
+  color: #ffffff;
+  line-height: 1.7;
+  margin-bottom: 1.5rem; /* Espaço entre os parágrafos */
+}
+
+.sobre-texto p:last-child {
+  margin-bottom: 0; /* Remove a margem do último parágrafo no bloco de texto */
+}
+
+.sobre-imagem {
+  flex-shrink: 0; /* Impede que a imagem encolha se não houver espaço */
+  /* A largura será controlada pela imagem diretamente ou por um max-width aqui */
+}
+
+.sobre-imagem img {
+  width: 350px;   /* Largura desejada para a imagem */
+  height: 500px;  /* Altura desejada para dar um aspecto mais vertical */
+  object-fit: cover; /* Garante que a imagem cubra a área sem distorcer, cortando se necessário */
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Sombra um pouco mais pronunciada */
+}
+
+/* Responsividade para a seção "Sobre" */
+@media (max-width: 768px) {
+  .sobre-conteudo {
+    flex-direction: column; /* Empilha texto e imagem em telas menores */
+    align-items: center; /* Centraliza os itens empilhados */
+    gap: 2.5rem; /* Ajusta o espaço quando empilhado */
+  }
+
+  .sobre-texto {
+    max-width: 100%; /* Permite que o texto use toda a largura disponível */
+    text-align: center; /* Centraliza o texto quando empilhado (opcional) */
+  }
+  
+  .sobre-imagem img {
+    width: 280px; /* Pode ajustar o tamanho da imagem em telas menores */
+    height: 420px; 
+  }
+}
+
+/* Depoimentos */
+/* #depoimentos {
+  padding: 4rem 2rem;
+  background-color: #648a64;
+  text-align: center;
+}
+
+.depoimentos blockquote {
+  max-width: 500px;
+  margin: 2rem auto;
+  font-style: italic;
+  color: #555;
+}
+
+.depoimentos footer {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+} */
+
+#blog {
+  padding: 5rem 2rem;
+  background-color: #fffefc;
+  text-align: center;
+}
+
+#blog h2 {
+  font-size: 2rem;
+  color: #213435;
+  margin-bottom: 3rem;
+  font-weight: 800;
+}
+
+.blog-lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.blog-card {
+  background-color: #e1e3ac;
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 300px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  text-align: left;
+  transition: transform 0.3s;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+.blog-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.blog-card h3 {
+  font-size: 1.2rem;
+  color: #213435;
+  margin-bottom: 0.5rem;
+}
+
+.blog-card p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.leia-mais {
+  display: inline-block;
+  margin: 1rem 0;
+  padding: 0.75rem 1.5rem;
+  background-color: #FFAB76;
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Contato */
+#contato {
+  padding: 0.1rem 0.1rem;
+  background-color: #213435;
+  text-align: center;
+  color: #ffffff;
+}
+
+.btn-whatsapp {
+  display: inline-block;
+  margin: 1rem 0;
+  padding: 0.75rem 1.5rem;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.form-contato {
+  max-width: 500px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-contato input,
+.form-contato textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: 'Inter', sans-serif;
+}
+
+.form-contato button {
+  background-color: #27ae60;
+  color: #fff;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form-contato button:hover {
+  background-color: #219150;
+}
+
+/* Redes Sociais */
+.redes-sociais {
+  margin-top: 2rem;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.social-icons li {
+  display: inline-block;
+}
+
+.social-icons a {
+  color: #ffffff;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #648a64;
+}
+
+/* WhatsApp Flutuante */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.whatsapp-float img {
+  width: 50px;
+  height: 50px;
+}
+
+.close-menu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* Hero */
+  .hero {
+    background: url('images/dog9-mobile.webp') center/cover no-repeat;
+    padding: 5rem 1.5rem;
+    min-height: 70vh;
+    background-position: center;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero a {
+    font-size: 1.4rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  /* Seção Serviços */
+  .servicos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+    /* Estilo do Cabeçalho principal */
+header {
+    display: flex;
+    justify-content: space-between; /* Título à esquerda, ícone à direita */
+    align-items: center;
+    padding: 1rem 1.5rem;
+    position: relative;
+    background-color: #213435;
+}
+
+/* Garante que nada centralize a logo por acidente */
+  header img.logo {
+    display: block;
+    margin: 0;
+    margin-top: 0.5rem;
+  }
+
+
+header .social-menus {
+    display: none; /* Esconde o menu padrão */
+}
+
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* --- Ícone do menu hamburguer (sem alterações) --- */
+.hamburguer {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+    z-index: 1002;
+}
+
+.hamburguer span {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.hamburguer.hide {
+    display: none;
+}
+
+/* --- Menu mobile (Overlay) --- */
+#menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #648a64; /* Fundo um pouco mais opaco */
+    z-index: 1000;
+
+    /* Configuração Flexbox para layout vertical */
+    flex-direction: column;
+    justify-content: flex-start; /* Alinha links no topo */
+    align-items: center; /* Centraliza itens horizontalmente */
+    
+    padding-top: 6rem; /* Espaço no topo para os links */
+    text-align: left;
+    gap: 1.52em; /* Espaço entre os links */
+}
+
+#menu.show {
+    display: flex;
+}
+
+/* Links do menu */
+#menu a {
+    color: #ffffff;
+    font-size: 1.5rem;
+    text-decoration: none;
+    padding: 1rem 0;
+    width: 80%; /* Largura dos links */
+}
+
+/* ESCONDIDO: O logo dentro do menu não será mais exibido */
+.menu-logo {
+    display: none;
+}
+
+/* --- Botão "X" (fechar) (sem grandes alterações) --- */
+.close-menu {
+    display: none;
+    position: absolute;
+    top: 1.2rem;
+    right: 1.5rem;
+    font-size: 2.6rem;
+    color: white;
+    cursor: pointer;
+    z-index: 1002;
+}
+
+.close-menu.show {
+    display: block;
+}
+
+/* --- Seção Contato --- */
+#contato {
+  /* Aumenta o espaçamento interno para dar respiro em telas menores */
+  padding: 4rem 1.5rem;
+}
+
+/* Estilo para o título da seção (assumindo que você tem um <h2>Contato</h2>) */
+#contato h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Estilo para o parágrafo de texto da seção */
+#contato p {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5rem;
+}
+
+/* Ajusta o botão do WhatsApp para mobile */
+.btn-whatsapp {
+  padding: 0.8rem 1.8rem;
+  font-size: 1rem;
+}
+
+/* Formulário de Contato */
+.form-contato {
+  /* Garante que o formulário não toque as bordas e mantém o max-width */
+  width: 90%;
+  margin: 2.5rem auto; /* Ajusta a margem vertical */
+  gap: 1.2rem; /* Pequeno ajuste no espaçamento entre os campos */
+}
+
+/* Campos de Input e Textarea */
+.form-contato input,
+.form-contato textarea {
+  /* Melhora a legibilidade e usabilidade em telas de toque */
+  font-size: 16px; /* Usar 16px evita o zoom automático em iPhones ao focar no campo */
+  padding: 1rem;
+  border-radius: 8px; /* Bordas um pouco mais arredondadas para um visual moderno */
+}
+
+/* Botão de Envio do Formulário */
+.form-contato button {
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  margin-top: 0.5rem; /* Adiciona um pequeno espaço antes do botão */
+}
+
+/* Redes Sociais no final da seção */
+.redes-sociais {
+  margin-top: 3rem; /* Aumenta o espaço acima dos ícones sociais */
+}
+
+.social-icons {
+  gap: 1.5rem; /* Aumenta o espaço entre os ícones */
+}
+
+.social-icons a {
+  font-size: 1.8rem; /* Aumenta o tamanho do ícone para facilitar o toque */
+}
+
+}
+
+.voltar{
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #FFAB76;
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.obrigado {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #e1e3ac;
+  color: #213435;
+}
+
+.footer {
+  background-color: #213435;
+  color: #ffffff;
+  padding: 1rem 0;
+  text-align: center;
+}
+.footer h2{
+  background-color: #213435;
+  color: #ffffff;
+  text-align: center;
+  font-size: 0.7rem;
+}
+
+.footer img {
+  width: 150px;
+  height: auto;
+  margin-top: 1rem;
+}

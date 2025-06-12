@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ritmo Canino - Passeios para Cães</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel=" stylesheet" href="css/slick.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preload" href="images/dog7.webp" as="image">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+
+<body>
+  <header>
+    <img src="images/logobranco.svg" alt="Logo" loading="lazy" class="logo">
+    <nav id="menu">
+      <a href="#inicio">Início</a>
+      <a href="#servicos">Como Funciona</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#precos">Preços</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <div class="social-menus">
+  <a href="https://www.facebook.com/share/16N9uWrqcn/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://www.instagram.com/jonathassr?igsh=OHB5M2FhdWh0OTZr" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://wa.me/5588993370497" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>
+
+
+    <div id="hamburguer" class="hamburguer">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="close-menu" id="closeMenu">&times;</div>
+  </header>
+
+  <section id="inicio" class="hero">
+    <h1>Passeios que fazem bem para seu cão <br>e para você<br></h1>
+    <p>Pessoas apaixonados por animais, cuidando do seu pet com carinho.</p>
+    <a href="#contato">Agendar Passeio</a>
+  </section>
+
+  <section id="servicos">
+    <h2>Como Funciona</h2>
+    <div class="servicos">
+      <div class="card">
+        <img src="images/dog5.webp" alt="Passeio Individual" loading="lazy">
+        <h3>Passeios Individuais</h3>
+      </div>
+      <div class="card">
+        <img src="images/dog4.webp" alt="Passeios em Grupo" loading="lazy">
+        <h3>Passeios em Grupo</h3>
+      </div>
+      <div class="card">
+        <img src="images/dog10.webp" alt="Cuidados Extras" loading="lazy">
+        <h3>Cuidados Extras</h3>
+      </div>
+      <div class="card">
+        <img src="images/dog9.webp" alt="Trilhas Naturais" loading="lazy">
+        <h3>Diversão Garantida</h3>
+      </div>
+    </div>
+  </section>
+
+<section id="beneficios">
+  <div class="container">
+    <h2>Benefícios dos Passeios</h2>
+    <div class="beneficios-lista">
+      <div class="beneficio-item">
+        <img src="images/saude.svg" alt="Saúde">
+        <h3>Saúde e Bem-estar</h3>
+        <p>Os passeios regulares ajudam a manter seu cão ativo, saudável e feliz.</p>
+      </div>
+      <div class="beneficio-item">
+        <img src="images/dog-junto.webp" alt="Socialização">
+        <h3>Socialização</h3>
+        <p>Seu pet aprende a lidar com outros cães, pessoas e diferentes ambientes.</p>
+      </div>
+      <div class="beneficio-item">
+        <img src="images/dog-treinando.webp" alt="Comportamento">
+        <h3>Comportamento Equilibrado</h3>
+        <p>Cães que passeiam com frequência demonstram menos ansiedade e comportamentos destrutivos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="precos">
+  <div class="container">
+    <h2>Nossos Planos</h2>
+    <div class="planos-lista">
+      <div class="plano-card">
+        <h3>🦴 Plano Patinha</h3>
+        <p class="descricao-plano">Para passeios leves e cheios de alegria.</p>
+        <p class="preco">R$ 4,90 <spanspan style="color: #648a64;">/mês</span></p>
+        <ul>
+          <li>1 passeio por semana</li>
+          <li>30 minutos por passeio</li>
+          <li>Relatório pós-passeio</li>
+        </ul>
+        <a href="#contato" class="escolher">Escolher Plano</a>
+      </div>
+      <div class="plano-card destaque">
+        <h3>🐾 Plano Companheiro</h3>
+        <p class="descricao-plano">Passeios frequentes para manter o cão ativo e saudável.</p>
+        <p class="preco">R$ 9,90 <spanspan style="color: #648a64;">/mês</span></p>
+        <ul>
+          <li>2 passeios por semana</li>
+          <li>45 minutos por passeio</li>
+          <li>Tudo do plano anterior</li>
+          <li> + Relatório com fotos</li>
+        </ul>
+        <a href="#contato" class="escolher">Escolher Plano</a>
+      </div>
+      <div class="plano-card">
+        <h3>🐶 Plano Cão Ativo</h3>
+        <p class="descricao-plano">Para cães superativos que precisam de mais tempo e intensidade.</p>
+        <p class="preco">R$ 14,90 <span style="color: #648a64;">/mês</span></p>
+        <ul>
+          <li>3 passeios por semana</li>
+          <li>1 hora por passeio</li>
+          <li>Tudo do plano anterior</li>
+          <li> + Monitoramento em tempo real</li>
+        </ul>
+        <a href="#contato" class="escolher">Escolher Plano</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="sobre">
+  <h2>Sobre a Ritmo Canino</h2>
+  <div class="sobre-conteudo">
+    <div class="sobre-texto">
+      <p>A <span style="color: #213435;">Ritmo Canino</span> nasceu da vontade de unir o amor por cachorros com a ideia 
+        de ajudar quem não tem tempo para os passeios 🐶.<br><br> 
+        Sou Jonathas, e todos os passeios são feitos por mim, com atenção, carinho e responsabilidade.
+        Atendo nos bairros <span style="color: #213435;">Pitombeira</span>, <span style="color: #213435;">Populares</span>, 
+        <span style="color: #213435;">José Simões</span> e <span style="color: #213435;">Brotolândia</span>
+        — sempre em locais tranquilos e seguros, como praças e áreas residenciais. Mais do que um simples passeio, o que ofereço é 
+        um momento de <span style="color: #213435;">bem-estar</span>, <span style="color: #213435;">diversão</span> e
+        <span style="color: #213435;">cuidado.</span>para o seu pet.</p>
+      <p>A Ritmo Canino é um projeto feito com dedicação. Aqui, seu cachorro é tratado como parte da <span style="color: #213435;">familía</span>. 💚</span></p>
+    </div>
+    <div class="sobre-imagem">
+      <img src="images/Ritmo canino(com fundo).svg" alt="Passeador da Pata Dog com um cão feliz em uma trilha">
+    </div>
+  </div>
+</section>
+
+  <!-- <section id="depoimentos">
+    <h2>Depoimentos</h2>
+    <div class="depoimentos">
+      <blockquote>
+        <p>“Confiável e carinhoso! Meu cachorro ama os passeios.”</p>
+        <footer>– Ana, tutora do Mel</footer>
+      </blockquote>
+      <blockquote>
+        <p>“Serviço profissional e atencioso. Recebo fotos e vídeos de cada passeio!”</p>
+        <footer>– Bruno, tutor da Mel</footer>
+      </blockquote>
+    </div>
+  </section> -->
+
+<section id="blog">
+  <div class="container">
+    <h2>Dicas e Cuidados com seu Pet</h2>
+    <div class="blog-lista">
+      <div class="blog-card">
+        <img src="images/dogcapa.webp" alt="Passeios seguros">
+        <h3>Passeios seguros: cuidados essenciais</h3>
+        <p>Dicas para garantir a segurança do seu cão durante os passeios diários.</p>
+        <a href="https://panelacopet.com.br/blog/6-dicas-para-passear-com-cachorro/" class="leia-mais">Leia mais</a>
+      </div>
+      <div class="blog-card">
+        <img src="images/dog2.webp" alt="Benefícios dos passeios">
+        <h3>Benefícios físicos e mentais dos passeios</h3>
+        <p>Entenda por que caminhar regularmente é essencial para o bem-estar do seu pet.</p>
+        <a href="https://petmed.com.br/artigos/passeio-pet-saude-para-seu-cachorro#:~:text=O%20passeio%20possibilita%20ao%20c%C3%A3o,manter%20uma%20boa%20sa%C3%BAde%20f%C3%ADsica."
+        class="leia-mais">Leia mais</a>
+      </div>
+      <div class="blog-card">
+        <img src="images/dog7.webp" alt="Rotina saudável">
+        <h3>Como criar uma rotina saudável para seu pet</h3>
+        <p>Organize melhor o tempo para que seu cão tenha uma rotina feliz e ativa.</p>
+        <a href="https://www.petlove.com.br/dicas/13-dicas-rotina-saudavel-cachorro" class="leia-mais">Leia mais</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section id="contato">
+    <h2>Contato</h2>
+    <p>Entre em contato pelo WhatsApp ou preencha o formulário abaixo:</p>
+    <a class="btn-whatsapp" href="https://wa.me/5588993370497" target="_blank">Falar no WhatsApp</a>
+
+<form action="https://formsubmit.co/jonathassr19@gmail.com" method="POST" class="form-contato">
+  <input type="text" name="nome" placeholder="Seu nome" required>
+  <input type="email" name="email" placeholder="Seu e-mail" required>
+  <input type="tel" name="telefone" placeholder="Seu WhatsApp ou Telefone" required>
+  <textarea name="mensagem" rows="5" placeholder="Escreva sua mensagem..." required></textarea>
+
+  <!-- Redireciona para uma página após o envio (você pode criar essa página depois) -->
+  <input type="hidden" name="_next" value="http://127.0.0.1:5500//obrigado.html">
+
+  <!-- Desativa o captcha padrão do Formsubmit -->
+  <input type="hidden" name="_captcha" value="false">
+
+  <button type="submit">Enviar</button>
+</form>
+
+
+
+    <div class="redes-sociais">
+<ul class="social-icons list-unstyled list-inline mb-0">
+                            <li class="list-inline-item">
+                                <a href="https://www.facebook.com/share/16N9uWrqcn/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.instagram.com/jonathassr?igsh=OHB5M2FhdWh0OTZr"><i class="fab fa-instagram"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://wa.me/5588993370497"><i class="fab fa-whatsapp"></i></a>
+                        </ul>
+    </div>
+  </section>
+
+  <div class="whatsapp-float">
+    <a href="https://wa.me/5588993370497" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+  </div>
+
+<footer class="footer">
+  <img src="images/Ritmo-canino2-removebg-preview.webp" alt="Logo Ritmo Canino" loading="lazy">
+  <h2>© 2025 - Todos os direitos reservados - Ritmo Canino</h2>
+</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
