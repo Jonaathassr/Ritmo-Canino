@@ -38,3 +38,10 @@ mobileMenuLinks.forEach(link => {
     }, 250);
   });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const imagens = document.querySelectorAll('img');
+    imagens.forEach(img => {
+      img.addEventListener('contextmenu', e => e.preventDefault());
+    });
+  });
